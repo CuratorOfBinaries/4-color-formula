@@ -1,0 +1,188 @@
+:root {
+  --hue: 0;
+  --teritary-hue: calc(var(--hue) + 300);
+  --accent-hue: calc(var(--hue) + 60);
+
+  --primary-color: hsl(var(--hue), 50%, 90%);
+  --secondary-background-color: hsl(var(--hue), 50%, 95%);
+  --secondary-color: hsl(var(--hue), 50%, 10%);
+  --tertiary-color: hsl(var(--teritary-hue), 80%, 20%);
+  --accent-color: hsl(var(--accent-hue), 80%, 20%);
+
+  --track-width: 50%;
+  font-family: 'Roboto', sans-serif;
+  line-height: 24px;
+}
+
+.dark {
+  --primary-color: hsl(var(--hue), 50%, 10%);
+  --secondary-color: hsl(var(--hue), 50%, 90%);
+  --tertiary-color: hsl(var(--teritary-hue), 80%, 80%);
+  --accent-color: hsl(var(--accent-hue), 80%, 80%);
+}
+
+body {
+  background: rgb(124,135,152);
+  background: linear-gradient(61deg, var(--primary-color) 0%, var(--primary-color) 100%);
+  color: var(--secondary-color);
+  display: grid;
+  place-items: center;
+  
+}
+
+h1,
+p {
+  color: var(--secondary-color);
+}
+
+a,
+span {
+  color: var(--accent-color);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls {
+  display: grid;
+  grid-column: 2 / 3;
+  grid-template-rows: 2fr 2fr 1fr 1fr;
+}
+
+.code-box {
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  background-color: var(--secondary-background-color);
+  color: var(--secondary-color);
+  grid-column: 3 / 4;
+  padding: 20px;
+}
+
+.slider-bar-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-gap: 20px;
+  align-items: center;
+}
+
+.copy-button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/*************************
+  * Custom slider
+  *************************/
+input[type=range] {
+  -webkit-appearance: none;
+  /* Hides the slider so that custom slider can be made */
+  width: 100%;
+  /* Specific width is required for Firefox. */
+  background: transparent;
+  /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+  /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 36px;
+  width: 16px;
+  border-radius: 50px;
+  background: hsl(var(--hue), 50%, 50%);
+  cursor: pointer;
+  margin-top: -14px;
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  height: 36px;
+  width: 16px;
+  border-radius: 50px;
+  background: hsl(var(--hue), 50%, 50%);
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  height: 36px;
+  width: 16px;
+  border-radius: 50px;
+  background: hsl(var(--hue), 50%, 50%);
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: var(--track-width);
+  height: 8.4px;
+  cursor: pointer;
+  background: hsl(var(--hue), 50%, 50%);
+  border-radius: 1.3px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: hsl(var(--hue), 50%, 50%);
+}
+
+input[type=range]::-moz-range-track {
+  width: var(--track-width);
+  height: 8.4px;
+  cursor: pointer;
+  background: hsl(var(--hue), 50%, 50%);
+  border-radius: 1.3px;
+}
+
+input[type=range]::-ms-track {
+  width: var(--track-width);
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: hsl(var(--hue), 50%, 50%);
+  border-radius: 2.6px;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: hsl(var(--hue), 50%, 50%);
+}
+
+input[type=range]::-ms-fill-upper {
+  background: hsl(var(--hue), 50%, 50%);
+  border-radius: 2.6px;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: hsl(var(--hue), 50%, 50%);
+}

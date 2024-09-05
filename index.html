@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>4 color formula</title>
+</head>
+<body>
+  <div class="wrapper">
+    <section class="container controls">
+      <h1>You need <span>4</span> colors</h1>
+      <p>2 for text and background (primary & secondary colors). 1 accent color to highlight important elements(number4 & link). 
+        And an optional tertiary color to add depth to your design.
+      </p>
+      <div>
+        <a href="#">How it works?</a>
+      </div>
+      <div class="slider-bar-container">
+        <label for="hue-slider">Hue</label>
+        <input type="range" min="0" max="360" value="0" name="hue-slider" class="hue-slider" id="hue-slider">
+        <input type="number" min="0" max="360" value="0" class="hue-input" id="hue-input">
+      </div>
+    </section>
+    <section class="container code-box">
+      <div class="copy-button" id="copy-button">Copy</div>
+      <div class="code-container" id="code-container">
+        <pre>
+          :root {
+            --hue: <i class="hue-display-value"></i>;
+            --teritary-hue: hsl(<i class="hue-display-value"></i> + 300);
+            --accent-hue: hsl(<i class="hue-display-value"></i> + 60);
+          
+            --primary-color: hsl(<i class="hue-display-value"></i>, 50%, 90%);
+            --secondary-color: hsl(<i class="hue-display-value"></i>, 50%, 10%);
+            --tertiary-color: hsl(<i class="teritary-hue-display-value"></i>, 80%, 20%);
+            --accent-color: hsl(<i class="accent-hue-display-value"></i>, 80%, 20%);
+          }
+          
+          .dark {
+            --primary-color: hsl(<i class="hue-display-value"></i>, 50%, 10%);
+            --secondary-color: hsl(<i class="hue-display-value"></i>, 50%, 90%);
+            --tertiary-color: hsl(<i class="teritary-hue-display-value"></i>, 80%, 80%);
+            --accent-color: hsl(<i class="accent-hue-display-value"></i>, 80%, 80%);
+          }
+        </pre>
+      </div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
